@@ -1244,14 +1244,13 @@ h3.quote::before {
 }
 
 .logo {
-  color: #242424;
-  font-weight: 600;
-  letter-spacing: 1px;
+  height: 100px;
+
 }
 
-.logo span {
+/*.logo span {
   color: #f75757;
-}
+}*/
 
 .sub-form {
   position: relative;
