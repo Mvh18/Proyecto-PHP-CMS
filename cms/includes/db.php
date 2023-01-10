@@ -7,10 +7,15 @@ $db_name = 'cms';
 
 
 
-$mysqli = new mysqli($db_host,$db_user, $db_pass, $db_name);
+$connection = new mysqli($db_host,$db_user, $db_pass, $db_name);
 
 // Check connection
-if ($mysqli -> connect_errno) {
+
+/*if ($connection) {
+  echo "we are connect";
+}*/
+
+if ($connection -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
   exit();
 }

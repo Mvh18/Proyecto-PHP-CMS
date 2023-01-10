@@ -43,16 +43,25 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
 					<li class="nav-item"><a class="nav-link" href="project.html">Portfolio</a></li>
-					<!--<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="blog.php" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
-					<ul class="dropdown-menu" aria-labelledby="dropdown05">
-						<li><a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
-						<li><a class="dropdown-item" href="blog.php">Blog with Sidebar</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="blog.php" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdown05">
+							<?php
 
-						<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-					</ul>
-			  </li> -->
-					<li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
+							$query = "SELECT * FROM categories";
+
+
+							$query_result = $connection->query($query);
+
+							//$select_All_categories = mysqli_query($connection, $query);
+
+							while ($row = mysqli_fetch_assoc($query_result)) {
+								echo "<li><a class='dropdown-item' href='blog-grid.html'>{$row['cat_title']}</a></li>";
+							}
+							?>
+						</ul>
+					</li>
+					<!--<li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li> -->
 					<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 				</ul>
 
