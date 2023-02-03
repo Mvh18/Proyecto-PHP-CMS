@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse text-center" id="navbarsExample09">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
@@ -42,9 +42,9 @@
 						</ul>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-					<li class="nav-item"><a class="nav-link" href="project.html">Portfolio</a></li>
+					<li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="blog.php" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+						<a class="nav-link dropdown-toggle" href="blog.php" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdown05">
 							<?php
 
@@ -56,7 +56,7 @@
 							//$select_All_categories = mysqli_query($connection, $query);
 
 							while ($row = mysqli_fetch_assoc($query_result)) {
-								echo "<li><a class='dropdown-item' href='blog-grid.html'>{$row['cat_title']}</a></li>";
+								echo "<li><a class='dropdown-item' href='blog.php'>{$row['cat_title']}</a></li>";
 							}
 							?>
 						</ul>

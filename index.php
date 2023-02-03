@@ -1,11 +1,11 @@
 <!-- DB Connection --> 
-<?php include "includes/db.php" ?>
+<?php include "templates/includes/db.php" ?>
 
-<?php include "includes/header.php" ?>
+<?php include "templates/includes/header.php" ?>
 <!--Header Close --> 
 
 <!-- Navigation Start --> 
-<?php include "includes/navigation.php" ?>
+<?php include "templates/includes/navigation.php" ?>
 <!--Navigation Close --> 
 
 <div class="main-wrapper ">
@@ -351,5 +351,5 @@
 </section>
 
 <!-- footer Start -->
-<?php include "includes/footer.php"; ?>
+<?php include "templates/includes/footer.php"; ?>
 
