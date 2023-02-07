@@ -33,34 +33,43 @@
 					<div class="row">
 						<div class="col-lg-6 col-md-6 mb-5">
 							<div class="blog-item">
-								<img src="images/blog/1.jpg" alt="" class="img-fluid rounded">
 								<?php
+								try {
+									$query = "SELECT * FROM posts";
+									$select_all_posts_query = mysqli_query($connection, $query);
 
-								$query = "SELECT * FROM posts";
-								$select_all_posts_query = mysqli_query($connection, $query);
+									while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+										$post_title = $row['post_title'];
+										$post_author = $row['post_author'];
+										$post_date = $row['post_date'];
+										$post_image = $row['post_image'];
+										$post_content = $row['post_content'];
+								?>		
+										<?php if (isset($post_image)) : ?>
+											<img src="images/blog/<?php echo $post_image; ?>" alt="" class="img-fluid rounded">
+										<?php elseif (empty($post_image)) : ?>
+											<img src="images/blog/no_image.jpg" alt="" class="img-fluid rounded">
+										<?php endif; ?>
 
-								while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
-									$post_title = $row['post_title'];
-									$post_author = $row['post_author'];
-									$post_date = $row['post_date'];
-									$post_image = $row['post_image'];
-									$post_content = $row['post_content'];
+										<div class="blog-item-content bg-white p-4">
+											<p class="text-muted py-1 px-2" style="margin: 0px">Autor:
+												<a href="index.php"><?php echo $post_author; ?></a>
+											</p>
+											<div class="blog-item-meta  py-1 px-2">
+												<span class="text-muted text-capitalize mr-3"><i class="ti-calendar mr-2"></i><?php echo $post_date; ?></span>
+											</div>
+											<h3 class="mt-3 mb-3"><a href="blog-single.html"><?php echo $post_title; ?></a></h3>
+											<p class="mb-4"><?php echo $post_content; ?></p>
 
-								?>
-									<div class="blog-item-content bg-white p-4">
-										<div class="blog-item-meta  py-1 px-2">
-											<span class="text-muted text-capitalize mr-3"><i class="ti-calendar mr-2"></i><?php echo $post_date; ?></span>
+											<a href="blog-single.html" class="btn btn-small btn-main btn-round-full">Ver más</a>
 										</div>
-
-										<h3 class="mt-3 mb-3"><a href="blog-single.html"><?php echo $post_title; ?></a></h3>
-										<p class="mb-4"><?php echo $post_content; ?></p>
-
-										<a href="blog-single.html" class="btn btn-small btn-main btn-round-full">Ver más</a>
-									</div>
-								<?php } ?>
+								<?php
+									}
+								} catch (Exception $e) {
+									echo 'Caught exception: ',  $e->getMessage(), "\n";
+								} ?>
 							</div>
 						</div>
-
 
 					</div>
 				</div>
