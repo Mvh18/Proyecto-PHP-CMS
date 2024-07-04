@@ -2,7 +2,9 @@
 FROM php:8.1-apache
 
 # Establece el directorio de trabajo
-## WORKDIR /var/www/html
+WORKDIR /var/www/html
+
+RUN mkdir -p /var/www/html && chmod 755 /var/www/html
 #
 ## Copia tus archivos PHP al contenedor
 #COPY . /var/www/html
